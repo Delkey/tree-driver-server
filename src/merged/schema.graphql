@@ -1,0 +1,37 @@
+input ICreatePassenger {
+  name: String!
+  cellPhone: String
+  postalCode: String
+  address1: String
+  address2: String
+  hopeDays: Int
+}
+
+type CreatePassengerResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  CreatePassenger(passenger: ICreatePassenger!): CreatePassengerResponse!
+}
+
+type GetPassengerResponse {
+  ok: Boolean!
+  error: String
+  passenger: Passenger
+}
+
+type Query {
+  GetPassenger(id: Int!): GetPassengerResponse!
+}
+
+type Passenger {
+  id: Int
+  name: String
+  cellPhone: String
+  postalCode: String
+  address1: String
+  address2: String
+  hopeDays: Int
+}

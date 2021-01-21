@@ -1,0 +1,9 @@
+type Passenger {
+  id: Int
+  name: String
+  cellPhone: String
+  postalCode: String
+  address1: String
+  address2: String
+  hopeDays: Int
+}

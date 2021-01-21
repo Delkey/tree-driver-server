@@ -1,0 +1,9 @@
+type GetPassengerResponse {
+  ok: Boolean!
+  error: String
+  passenger: Passenger
+}
+
+type Query {
+  GetPassenger(id: Int!): GetPassengerResponse!
+}

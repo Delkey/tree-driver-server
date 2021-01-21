@@ -1,0 +1,17 @@
+{
+  "extends": ["tslint:recommended"],
+  "linterOptions": {
+    "exclude": ["config/**/*.js", "node_modules/**/*"]
+  },
+  "rules": {
+    "no-console": false,
+    "member-access": false,
+    "object-literal-sort-keys": false,
+    "ordered-imports": true,
+    "interface-name": false,
+    "variable-name": {
+      "options": ["ban-keywords", "check-format", "allow-leading-underscore", "allow-pascal-case", "allow-snake-case"]
+    }
+  },
+  "rulesDirectory": []
+}
