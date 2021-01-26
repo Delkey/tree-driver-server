@@ -14,6 +14,28 @@ type CreatePassengerResponse {
 
 type Mutation {
   CreatePassenger(passenger: ICreatePassenger!): CreatePassengerResponse!
+  DeletePassenger(id: Int!): DeletePassengerResponse!
+  EditPassenger(passenger: IEditPassenger!): EditPassengerResponse!
+}
+
+type DeletePassengerResponse {
+  ok: Boolean!
+  error: String
+}
+
+input IEditPassenger {
+  id: Int!
+  name: String!
+  cellPhone: String
+  postalCode: String
+  address1: String
+  address2: String
+  hopeDays: Int
+}
+
+type EditPassengerResponse {
+  ok: Boolean!
+  error: String
 }
 
 type GetPassengerResponse {
@@ -24,7 +46,22 @@ type GetPassengerResponse {
 
 type Query {
   GetPassenger(id: Int!): GetPassengerResponse!
+  GetPassengers(search: ISearch): GetPassengersResponse!
 }
+
+input ISearch {
+  name: String
+  cellPhone: String
+  hopeDays: [Int]
+}
+
+type GetPassengersResponse {
+  ok: Boolean
+  error: String
+  passengers: [Passenger]
+}
+
+scalar Date
 
 type Passenger {
   id: Int
@@ -33,5 +70,7 @@ type Passenger {
   postalCode: String
   address1: String
   address2: String
-  hopeDays: Int
+  hopeDays: [Int]
+  createdAt: Date
+  updatedAt: Date
 }

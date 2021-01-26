@@ -10,8 +10,8 @@ export const resolver: IResolvers = {
         const passenger: Passenger = await Passenger.findOne({ id });
         return { ok: true, error: null, passenger };
       } catch (error) {
-        logger.error(error);
-        return { ok: true, error: "탑승자 조회 오류!", passenger: null };
+        logger.error(error.message);
+        return { ok: false, error: "탑승자 조회 오류!", passenger: null };
       }
     },
   },

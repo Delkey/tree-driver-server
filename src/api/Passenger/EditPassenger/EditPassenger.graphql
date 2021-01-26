@@ -1,0 +1,18 @@
+input IEditPassenger {
+  id: Int!
+  name: String!
+  cellPhone: String
+  postalCode: String
+  address1: String
+  address2: String
+  hopeDays: Int
+}
+
+type EditPassengerResponse {
+  ok: Boolean!
+  error: String
+}
+
+type Mutation {
+  EditPassenger(passenger: IEditPassenger!): EditPassengerResponse!
+}

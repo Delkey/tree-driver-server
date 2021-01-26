@@ -1,4 +1,8 @@
-# 학원 차량 운행 탑승자 관리
+# tree-driver-server
+
+Server for the Tree Music Dirver Manager by realWonIlLee. GraphQL, Typescript, NodeJS
+
+## 학원 차량 운행 탑승자 관리
 
 탑승자
 
@@ -15,3 +19,17 @@
 - 첫 차량은 9시 ~ 마지막 차량은 17시 2시간 간격으로 가정
 
 - 차량 탑승 간격은 15분으로 가정
+
+## Resolvers
+
+### Authentication:
+
+---
+
+### Public Resolvers:
+
+---
+
+### Private Resolvers:
+
+---

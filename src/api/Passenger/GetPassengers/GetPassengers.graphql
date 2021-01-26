@@ -1,0 +1,15 @@
+input ISearch {
+  name: String
+  cellPhone: String
+  hopeDays: [Int]
+}
+
+type GetPassengersResponse {
+  ok: Boolean
+  error: String
+  passengers: [Passenger]
+}
+
+type Query {
+  GetPassengers(search: ISearch): GetPassengersResponse!
+}

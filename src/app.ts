@@ -20,13 +20,7 @@ class App {
     this.express = express();
     this.server = process.env.NODE_ENV === "dev" ? createServerHttp(this.express) : createServerHttps(null, this.express);
     this.apolloServer = new ApolloServer({
-      context: (ctx) => {
-        return {
-          ...ctx,
-          req: this.express.request,
-          res: this.express.response,
-        };
-      },
+      context: (ctx) => ctx,
       schema,
       validationRules: [depthLimit(7)],
     });

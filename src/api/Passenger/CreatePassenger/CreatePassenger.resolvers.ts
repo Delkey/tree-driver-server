@@ -12,8 +12,8 @@ export const resolver: IResolvers = {
         await Passenger.save(notNullPassenger);
         return { ok: true, error: null };
       } catch (error) {
-        logger.error(error);
-        return { ok: true, error: "탑승자 조회 오류!" };
+        logger.error(error.message);
+        return { ok: false, error: "탑승자 등록 오류!" };
       }
     },
   },
