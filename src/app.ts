@@ -20,7 +20,14 @@ class App {
     this.express = express();
     this.server = process.env.NODE_ENV === "dev" ? createServerHttp(this.express) : createServerHttps(null, this.express);
     this.apolloServer = new ApolloServer({
-      context: (ctx) => ctx,
+      context: async ({ req, connection }) => {
+        if (connection) {
+          return connection.context;
+        } else {
+          const token = req.headers.authorization || "";
+          return { token };
+        }
+      },
       schema,
       validationRules: [depthLimit(7)],
     });

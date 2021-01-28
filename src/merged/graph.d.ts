@@ -1,4 +1,4 @@
-export const typeDefs = ["input ICreatePassenger {\n  name: String!\n  cellPhone: String\n  postalCode: String\n  address1: String\n  address2: String\n  hopeDays: Int\n}\n\ntype CreatePassengerResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype Mutation {\n  CreatePassenger(passenger: ICreatePassenger!): CreatePassengerResponse!\n  DeletePassenger(id: Int!): DeletePassengerResponse!\n  EditPassenger(passenger: IEditPassenger!): EditPassengerResponse!\n}\n\ntype DeletePassengerResponse {\n  ok: Boolean!\n  error: String\n}\n\ninput IEditPassenger {\n  id: Int!\n  name: String!\n  cellPhone: String\n  postalCode: String\n  address1: String\n  address2: String\n  hopeDays: Int\n}\n\ntype EditPassengerResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype GetPassengerResponse {\n  ok: Boolean!\n  error: String\n  passenger: Passenger\n}\n\ntype Query {\n  GetPassenger(id: Int!): GetPassengerResponse!\n  GetPassengers(search: ISearch): GetPassengersResponse!\n}\n\ninput ISearch {\n  name: String\n  cellPhone: String\n  hopeDays: [Int]\n}\n\ntype GetPassengersResponse {\n  ok: Boolean\n  error: String\n  passengers: [Passenger]\n}\n\nscalar Date\n\ntype Passenger {\n  id: Int\n  name: String\n  cellPhone: String\n  postalCode: String\n  address1: String\n  address2: String\n  hopeDays: [Int]\n  createdAt: Date\n  updatedAt: Date\n}\n"];
+export const typeDefs = ["input ICreatePassenger {\n  name: String!\n  cellPhone: String\n  postalCode: String\n  address1: String\n  address2: String\n  hopeDays: [Int]\n}\n\ntype CreatePassengerResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype Mutation {\n  CreatePassenger(passenger: ICreatePassenger!): CreatePassengerResponse!\n  DeletePassenger(id: Int!): DeletePassengerResponse!\n  EditPassenger(passenger: IEditPassenger!): EditPassengerResponse!\n}\n\ntype DeletePassengerResponse {\n  ok: Boolean!\n  error: String\n}\n\ninput IEditPassenger {\n  id: Int!\n  name: String!\n  cellPhone: String\n  postalCode: String\n  address1: String\n  address2: String\n  hopeDays: [Int]\n}\n\ntype EditPassengerResponse {\n  ok: Boolean!\n  error: String\n}\n\ntype GetPassengerResponse {\n  ok: Boolean!\n  error: String\n  passenger: Passenger\n}\n\ntype Query {\n  GetPassenger(id: Int!): GetPassengerResponse!\n  GetPassengers(search: ISearch): GetPassengersResponse!\n}\n\ninput ISearch {\n  name: String\n  cellPhone: String\n  hopeDays: [Int]\n}\n\ntype GetPassengersResponse {\n  ok: Boolean\n  error: String\n  passengers: [Passenger]\n}\n\nscalar Date\n\ntype Passenger {\n  id: Int\n  name: String\n  cellPhone: String\n  postalCode: String\n  address1: String\n  address2: String\n  hopeDays: [Int]\n  createdAt: Date\n  updatedAt: Date\n}\n"];
 /* tslint:disable */
 
 export interface Query {
@@ -70,7 +70,7 @@ export interface ICreatePassenger {
   postalCode: string | null;
   address1: string | null;
   address2: string | null;
-  hopeDays: number | null;
+  hopeDays: Array<number> | null;
 }
 
 export interface CreatePassengerResponse {
@@ -90,7 +90,7 @@ export interface IEditPassenger {
   postalCode: string | null;
   address1: string | null;
   address2: string | null;
-  hopeDays: number | null;
+  hopeDays: Array<number> | null;
 }
 
 export interface EditPassengerResponse {

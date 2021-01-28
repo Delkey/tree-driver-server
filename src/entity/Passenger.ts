@@ -6,27 +6,27 @@ export class Passenger extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column({ type: "varchar", length: 50, comment: "탑승자명" })
+  @Column({ type: "varchar", length: 50, nullable: true, comment: "탑승자명" })
   name: string;
 
-  @Column({ type: "varchar", length: 15, comment: "휴대폰번호" })
+  @Column({ type: "varchar", length: 15, nullable: true, comment: "휴대폰번호" })
   cellPhone: string;
 
-  @Column({ type: "varchar", length: 5, comment: "우편번호" })
+  @Column({ type: "char", length: 5, nullable: true, comment: "우편번호" })
   postalCode: string;
 
-  @Column({ type: "varchar", length: 255, comment: "주소1" })
+  @Column({ type: "varchar", length: 200, nullable: true, comment: "주소1" })
   address1: string;
 
-  @Column({ type: "varchar", length: 100, comment: "주소2" })
+  @Column({ type: "varchar", length: 100, nullable: true, comment: "주소2" })
   address2: string;
 
-  @Column({ type: "set", enum: DayOfTheWeek, comment: "희망탑승요일" })
+  @Column({ type: "int", enum: DayOfTheWeek, array: true, comment: "희망탑승요일" })
   hopeDays: [DayOfTheWeek];
 
-  @CreateDateColumn({ type: "datetime", precision: 0, default: () => "CURRENT_TIMESTAMP", comment: "생성일" })
+  @CreateDateColumn()
   createdAt: Date;
 
-  @UpdateDateColumn({ type: "timestamp", precision: 0, default: () => "CURRENT_TIMESTAMP", onUpdate: "CURRENT_TIMESTAMP", comment: "업데이트일" })
+  @CreateDateColumn()
   updatedAt: Date;
 }

@@ -4,7 +4,7 @@ input ICreatePassenger {
   postalCode: String
   address1: String
   address2: String
-  hopeDays: Int
+  hopeDays: [Int]
 }
 
 type CreatePassengerResponse {
